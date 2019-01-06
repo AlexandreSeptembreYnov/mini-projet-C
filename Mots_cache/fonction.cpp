@@ -35,9 +35,10 @@ void detruire() {
     free(tab);
 }
 
-void ajout(){
+void ajout(int *x){
     char* string;
     char** tab = init();
+    int taille = *x;
     int ligne = 0;
     int colonne = 0;
     int i = 0;
