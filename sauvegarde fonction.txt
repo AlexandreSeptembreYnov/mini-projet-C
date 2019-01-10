@@ -16,7 +16,7 @@ void grille() {
     const int DEFAULT_GRID_SIZE = 10;
 }
 
-char** init() {
+void init() {
     int x;
     int i;
     int j;
@@ -27,10 +27,9 @@ char** init() {
             char *grille=(char*)malloc(sizeof(char) * x);
         }
     }
-    return **grille;
 }
 
-void detruire() {
+char** detruire() {
     char** tab = init();
     free(tab);
 }

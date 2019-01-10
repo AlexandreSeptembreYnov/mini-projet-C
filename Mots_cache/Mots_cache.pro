@@ -26,9 +26,7 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-    creationinterface.cpp \
-    mainwindow.cpp \
-    fonction.cpp
+    mainwindow.cpp
 
 HEADERS += \
     motcacher.h \
