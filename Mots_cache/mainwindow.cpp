@@ -780,13 +780,3 @@ void MainWindow::on_H8_clicked()
         ui->H8->setStyleSheet("background-color: white;");
     }
 }
-
-void MainWindow::on_B4_pressed()
-{
-     ui->B4->setStyleSheet("background-color: red;");
-}
-
-void MainWindow::on_C3_toggled(bool checked)
-{
-     ui->C3->setStyleSheet("background-color: red;");
-}
