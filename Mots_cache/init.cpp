@@ -5,14 +5,15 @@ typedef Ligne* Tableau;
 
 char **initTableau()
 {
-    char **tab = (Tableau)malloc(sizeof(Ligne) * TAILLE);
-    for (unsigned i = 0; i <= TAILLE; i++)
+
+   char **tab = (Tableau)malloc(sizeof(Ligne) * TAILLE);
+    for (unsigned i = 0; i < TAILLE; i++)
     {
         tab[i] = (Ligne)malloc(sizeof(char) * TAILLE);
     }
-    for(int x = 0 ; x <= TAILLE ; x++)
+    for(int x = 0 ; x < TAILLE ; x++)
     {
-        for(int y = 0; y <= TAILLE; y++)
+        for(int y = 0; y < TAILLE; y++)
         {
             tab[x][y] = '.';
         }
@@ -20,7 +21,6 @@ char **initTableau()
     return tab;
 }
 Mot* creationMot(char * str){
-    int i = 0;
     //malloc du mot
       Mot * mot = (Mot *) malloc(sizeof(Mot));
 
@@ -56,7 +56,12 @@ Mot* creationMot(char * str){
     }
 Liste* creationListe()
 {
-
+    Liste* l;
+    l = (Liste*)malloc(sizeof (Liste));
+    if (l == NULL)
+        EXIT_FAILURE;
+    l->head=NULL;
+    return l;
 }
 
 int AddElementAtEnd(Liste l, Mot e){
@@ -77,4 +82,31 @@ int AddElementAtEnd(Liste l, Mot e){
        ret = 0;
    }
    return ret;
+}
+void AddFirstElement(Liste l,Mot e)
+{
+    *l.head = e;
+}
+int remplirListe(Liste l)
+{
+    int ret = 1;
+    char chaine[8] = "";
+    FILE* fichier = NULL;
+    fichier = fopen("Dictionnaire.txt", "r+");
+    fseek(fichier, 0, SEEK_SET);
+    if (fichier != NULL)
+        {
+        fgets(chaine,8, fichier);
+        Mot *e = creationMot(chaine);
+        AddFirstElement(l,*e);
+        while (fgets(chaine,8, fichier)!=NULL)
+        {
+            fgets(chaine,8, fichier);
+            e = creationMot(chaine);
+            AddElementAtEnd(l,*e);
+            fseek(fichier, strlen(chaine)+2, SEEK_CUR);
+        }
+            fclose(fichier);
+        }
+    return ret;
 }

@@ -4,6 +4,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include <string.h>
+#include <unistd.h>
 
 enum direction {Horizontal=1,Vertical=2,DiagonnalHautDroit=3,DiagonnalHautGauche=4};
 enum sens {Droit=0, Inverse=1};
@@ -23,4 +25,11 @@ struct Liste
 {
     Mot *head;
 };
+char **initTableau();
+Mot* creationMot(char * str);
+Liste* creationListe();
+int AddElementAtEnd(Liste l, Mot e);
+void AddFirstElement(Liste l,Mot e);
+int remplirListe(Liste l);
+
 #endif // MOTCACHER_H
