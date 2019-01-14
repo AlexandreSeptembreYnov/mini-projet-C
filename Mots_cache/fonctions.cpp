@@ -9,6 +9,10 @@ int HorizontalDroit(int x, int y, char* labbel, int taille, char** tab){
     }
 };
 
+int AnnulerHorizDroit(int x, int y, int position){
+
+};
+
 int HorizontalInverse(int x, int y, char* labbel, int taille, char** tab){
     int position = 0;
     while (position < taille) {
@@ -16,6 +20,10 @@ int HorizontalInverse(int x, int y, char* labbel, int taille, char** tab){
         PlacerLettre(x,y,tab,lettre,position);
         x = x-1;
     }
+};
+
+int AnnulerHorizInverse(int position){
+
 };
 
 int VerticaleDroit(int x, int y, char* labbel, int taille, char** tab){
@@ -27,6 +35,10 @@ int VerticaleDroit(int x, int y, char* labbel, int taille, char** tab){
     }
 };
 
+int AnnulerVertDroit(int position){
+
+};
+
 int VerticaleInverse(int x, int y, char* labbel, int taille, char** tab){
     int position = 0;
     while (position < taille) {
@@ -34,6 +46,10 @@ int VerticaleInverse(int x, int y, char* labbel, int taille, char** tab){
         PlacerLettre(x,y,tab,lettre,position);
         y = y-1;
     }
+};
+
+int AnnulerVertInverse(int position){
+
 };
 
 int DiagonaleHautDroite(int x, int y, char* labbel, int taille, char** tab){
@@ -109,6 +125,9 @@ int PlacerMotVertical(int sens, int x, int y, int taille, char* labbel, char **t
     }
 };
 
+
+
+
 int PlacerMotDiagonaleDroite(int sens, int x, int y, int taille, char* labbel, char **tab){
     switch(sens){
         case 0:
@@ -120,6 +139,14 @@ int PlacerMotDiagonaleDroite(int sens, int x, int y, int taille, char* labbel, c
         default:
             error();
     }
+};
+
+int AnnulerHautDroit(int position){
+
+};
+
+int AnnulerBasGauche(int position){
+
 };
 
 int PlacerMotDiagonaleGauche(int sens, int x, int y, int taille, char* labbel, char **tab){
@@ -141,9 +168,16 @@ int PlacerLettre(int x, int y, char** tab, char lettre, int position){
 
 };
 
-int Annuler(int position){
+
+int AnnulerHautGauche(int position){
 
 };
+
+int AnnulerBasDroit(int position){
+
+};
+
+
 
 
 
