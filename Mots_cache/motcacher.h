@@ -30,7 +30,7 @@ Mot* creationMot(char * str);
 Liste* creationListe();
 int AddElementAtEnd(Liste l, Mot e);
 void AddFirstElement(Liste l,Mot e);
-int remplirListe(Liste l);
+void remplirListe(Liste l);
 
 int PlacerMotHorizontal(int sens, int x, int y, int taille, char* labbel, char **tab);
 int PlacerMotDiagonaleDroite(int sens, int x, int y, int taille, char* labbel, char **tab);

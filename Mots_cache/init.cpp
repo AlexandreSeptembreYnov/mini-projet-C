@@ -87,9 +87,9 @@ void AddFirstElement(Liste l,Mot e)
 {
     *l.head = e;
 }
-int remplirListe(Liste l)
+void remplirListe(Liste l)
 {
-    int ret = 1;
+    //int ret = 1;
     char chaine[8] = "";
     FILE* fichier = NULL;
     fichier = fopen("Dictionnaire.txt", "r+");
@@ -108,5 +108,5 @@ int remplirListe(Liste l)
         }
             fclose(fichier);
         }
-    return ret;
+    //return ret;
 }

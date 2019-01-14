@@ -11,6 +11,8 @@ int main(void)
         printf("\n");
     }
     printf("\n");
+    Liste *li = creationListe();
+    remplirListe(*li);
     return 0;
 }
 
