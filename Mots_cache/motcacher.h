@@ -30,6 +30,30 @@ Mot* creationMot(char * str);
 Liste* creationListe();
 int AddElementAtEnd(Liste l, Mot e);
 void AddFirstElement(Liste l,Mot e);
-int remplirListe(Liste l);
+void remplirListe(Liste l);
+
+int HorizontalDroit(int x, int y, Mot e, char** tab);
+int AnnulerHorizDroit(int x, int y, int position, char** tab);
+int HorizontalInverse(int x, int y, Mot e, char** tab);
+int AnnulerHorizInverse(int x, int y, int position, char** tab);
+int VerticaleDroit(int x, int y, Mot e, char** tab);
+int AnnulerVertDroit(int x, int y, int position, char** tab);
+int VerticaleInverse(int x, int y, Mot e, char** tab);
+int AnnulerVertInverse(int x, int y, int position, char** tab);
+int DiagonaleHautDroite(int x, int y, Mot e, char** tab);
+int AnnulerHautDroit(int x, int y, int position, char** tab);
+int DiagonaleBasGauche(int x, int y, Mot e, char** tab);
+int AnnulerBasGauche(int x, int y, int position, char** tab);
+int DiagonaleHautGauche(int x, int y, Mot e, char** tab);
+int AnnulerHautGauche(int x, int y, int position, char** tab);
+int DiagonaleBasDroite(int x, int y, Mot e, char** tab);
+int AnnulerBasDroit(int x, int y, int position, char** tab);
+void error();
+int PlacerMotHorizontal(int sens, int x, int y, Mot e, char **tab);
+int PlacerMotVerticale(int sens, int x, int y, Mot e, char **tab);
+int PlacerMotDiagonaleDroite(int sens, int x, int y, Mot e, char **tab);
+int PlacerMotDiagonaleGauche(int sens, int x, int y, Mot e, char **tab);
+int PlacerLettre(int x, int y, char** tab, char lettre);
+int PlacerMot(Mot e, char **tab);
 
 #endif // MOTCACHER_H

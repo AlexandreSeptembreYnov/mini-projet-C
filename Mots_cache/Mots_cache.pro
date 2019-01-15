@@ -27,7 +27,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-    init.cpp
+    init.cpp \
+    fonctions.cpp
 
 HEADERS += \
     motcacher.h
