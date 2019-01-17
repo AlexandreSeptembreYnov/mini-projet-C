@@ -6,17 +6,20 @@ int main(void)
     Liste *li = creationListe();
     remplirListe(*li);
     char **tab = initTableau();
-    for(int x = 0 ; x < TAILLE ; x++)
-    {
+     Mot e = *li->head;
+     for(int x = 0 ; x < TAILLE ; x++)
+     {
         for(int y = 0; y < TAILLE; y++)
-        {
-                Mot e;
+     {
 
-                PlacerMot(e,tab);
-
-                e.next;
-                k++;
-            printf("%c",tab[x][y]);
+//
+  //              PlacerMot(e,tab);
+//
+                e = *e.next;
+                printf("%s",*e.labbel);
+                printf("\n");
+    //            k++;
+      //      printf("%c",tab[x][y]);
         }
         printf("\n");
     }

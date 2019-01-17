@@ -1,4 +1,4 @@
-#include "motcacher.h"
+    #include "motcacher.h"
 
 typedef char* Ligne;
 typedef Ligne* Tableau;

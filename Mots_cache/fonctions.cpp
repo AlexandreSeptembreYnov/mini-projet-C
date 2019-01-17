@@ -25,7 +25,7 @@ int AnnulerHorizDroit(int x, int y, int position, char*** tab){
     }
 };
 
-int HorizontalInverse(int x, int y, Mot e, char*** tab){
+void HorizontalInverse(int x, int y, Mot e, char*** tab){
     int position = 0;
     int error = 0;
     while (position < e.taille &&  error != 1) {
@@ -34,15 +34,17 @@ int HorizontalInverse(int x, int y, Mot e, char*** tab){
         PlacerLettre(x,y,*tab,lettre);
         x = x-1;
         }
+
         else{
             AnnulerHorizInverse(x,y,position,*tab);
         }
+        position++;
 
     }
 
 };
 
-int AnnulerHorizInverse(int x, int y, int position, char*** tab){
+void AnnulerHorizInverse(int x, int y, int position, char*** tab){
     while (position > 0){
         *tab[x][y] = '.';
         x=x+1;
@@ -50,16 +52,17 @@ int AnnulerHorizInverse(int x, int y, int position, char*** tab){
     }
 };
 
-int VerticaleDroit(int x, int y, Mot e, char*** tab){
+void VerticaleDroit(int x, int y, Mot e, char*** tab){
     int position = 0;
     while (position < e.taille) {
         char lettre = e.labbel[position];
         PlacerLettre(x,y,*tab,lettre);
         y = y+1;
+        position++;
     }
 };
 
-int AnnulerVertDroit(int x, int y, int position, char*** tab){
+void AnnulerVertDroit(int x, int y, int position, char*** tab){
     while (position > 0){
         *tab[x][y] = '.';
         y=y-1;
@@ -67,16 +70,17 @@ int AnnulerVertDroit(int x, int y, int position, char*** tab){
     }
 };
 
-int VerticaleInverse(int x, int y, Mot e, char*** tab){
+void VerticaleInverse(int x, int y, Mot e, char*** tab){
     int position = 0;
     while (position < e.taille) {
         char lettre = e.labbel[position];
         PlacerLettre(x,y,*tab,lettre);
         y = y-1;
+        position++;
     }
 };
 
-int AnnulerVertInverse(int x, int y, int position, char*** tab){
+void AnnulerVertInverse(int x, int y, int position, char*** tab){
     while (position > 0){
         *tab[x][y] = '.';
         y=y+1;
@@ -84,18 +88,19 @@ int AnnulerVertInverse(int x, int y, int position, char*** tab){
     }
 };
 
-int DiagonaleHautDroite(int x, int y, Mot e, char*** tab){
+void DiagonaleHautDroite(int x, int y, Mot e, char*** tab){
     int position = 0;
     while (position < e.taille) {
         char lettre = e.labbel[position];
         PlacerLettre(x,y,*tab,lettre);
         x = x+1;
         y= y-1;
+        position++;
     }
 };
 
 
-int AnnulerHautDroit(int x, int y, int position, char*** tab){
+void AnnulerHautDroit(int x, int y, int position, char*** tab){
     while (position > 0){
         *tab[x][y] = '.';
         x=x-1;
@@ -105,17 +110,18 @@ int AnnulerHautDroit(int x, int y, int position, char*** tab){
 };
 
 
-int DiagonaleBasGauche(int x, int y, Mot e, char*** tab){
+void DiagonaleBasGauche(int x, int y, Mot e, char*** tab){
     int position = 0;
     while (position < e.taille) {
         char lettre = e.labbel[position];
         PlacerLettre(x,y,*tab,lettre);
         x = x-1;
         y= y+1;
+        position++;
     }
 };
 
-int AnnulerBasGauche(int x, int y, int position, char*** tab){
+void AnnulerBasGauche(int x, int y, int position, char*** tab){
     while (position > 0){
         *tab[x][y] = '.';
         x=x+1;
@@ -124,17 +130,18 @@ int AnnulerBasGauche(int x, int y, int position, char*** tab){
     }
 };
 
-int DiagonaleHautGauche(int x, int y, Mot e, char*** tab){
+void DiagonaleHautGauche(int x, int y, Mot e, char*** tab){
     int position = 0;
     while (position < e.taille) {
         char lettre = e.labbel[position];
         PlacerLettre(x,y,*tab,lettre);
         x = x-1;
         y= y-1;
+        position++;
     }
 };
 
-int AnnulerHautGauche(int x, int y, int position, char*** tab){
+void AnnulerHautGauche(int x, int y, int position, char*** tab){
     while (position > 0){
         *tab[x][y] = '.';
         x=x+1;
@@ -143,17 +150,18 @@ int AnnulerHautGauche(int x, int y, int position, char*** tab){
     }
 };
 
-int DiagonaleBasDroite(int x, int y, Mot e, char*** tab){
+void DiagonaleBasDroite(int x, int y, Mot e, char*** tab){
     int position = 0;
     while (position < e.taille) {
         char lettre = e.labbel[position];
         PlacerLettre(x,y,*tab,lettre);
         x = x+1;
         y= y+1;
+        position++;
     }
 };
 
-int AnnulerBasDroit(int x, int y, int position, char*** tab){
+void AnnulerBasDroit(int x, int y, int position, char*** tab){
     while (position > 0){
         *tab[x][y] = '.';
         x=x-1;
@@ -180,6 +188,7 @@ int PlacerMotHorizontal(int sens, int x, int y, Mot e, char **tab){
         default:
             error();
     }
+    return 1;
 };
 
 int PlacerMotVerticale(int sens, int x, int y, Mot e, char **tab){
@@ -193,6 +202,7 @@ int PlacerMotVerticale(int sens, int x, int y, Mot e, char **tab){
         default:
             error();
     }
+    return 1;
 };
 
 
@@ -209,6 +219,7 @@ int PlacerMotDiagonaleDroite(int sens, int x, int y, Mot e, char **tab){
         default:
             error();
     }
+    return 1;
 };
 
 
@@ -224,12 +235,14 @@ int PlacerMotDiagonaleGauche(int sens, int x, int y, Mot e, char **tab){
         default:
             error();
     }
+    return 1;
 };
 
 
 
 int PlacerLettre(int x, int y, char** tab, char lettre){
         tab[x][y] = lettre;
+        return 1;
 };
 
 int PlacerMot(Mot e, char **tab){
@@ -254,6 +267,6 @@ int PlacerMot(Mot e, char **tab){
         error();
         break;
     }
-
+    return 1;
 }
 
