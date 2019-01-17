@@ -26,11 +26,16 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
+    mainwindow.cpp \
+    fonctions_verif_mot.cpp \
+    main.cpp \
     mainwindow.cpp
 
 HEADERS += \
     motcacher.h \
-    mainwindow.h
+    mainwindow.h \
+    mainwindow.h \
+    motcacher.h
 
 FORMS += \
     mainwindow.ui
