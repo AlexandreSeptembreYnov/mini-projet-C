@@ -81,6 +81,8 @@ private slots:
     void on_H7_clicked();
     void on_H8_clicked();
 
+    void on_valider_clicked();
+
 private:
     Ui::MainWindow *ui;
 };
