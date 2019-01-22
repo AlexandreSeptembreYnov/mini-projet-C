@@ -1,11 +1,16 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
+#include <motcacher.h>
 
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    //initialisation de tout
+    Liste *li = creationListe();
+    remplirListe(*li);
+    char **tab = initTableau();
     ui->setupUi(this);
     ui->valider->setText("Valider");
     ui->validation->hide();
