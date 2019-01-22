@@ -11,11 +11,17 @@ int HorizontalDroit(int x, int y, Mot e, char*** tab){
         }
         else{
             AnnulerHorizDroit(x,y,position,*tab);
-            error = 1;
+            position = 0;
+            randomMot(e);
         }
     }
 };
-
+void randomMot (Mot e)
+{
+  srand(time(NULL));
+  e.xDebut = rand()%(TAILLE);
+  e.yDebut = rand()%(TAILLE);
+}
 int AnnulerHorizDroit(int x, int y, int position, char*** tab){
     int a = 0;
     while (position > 0){
@@ -33,12 +39,16 @@ void HorizontalInverse(int x, int y, Mot e, char*** tab){
         if (*tab[x][y] == lettre || *tab[x][y] == '.'){
         PlacerLettre(x,y,*tab,lettre);
         x = x-1;
+        position++;
         }
 
         else{
             AnnulerHorizInverse(x,y,position,*tab);
+            position = 0;
+            randomMot(e);
+
         }
-        position++;
+
 
     }
 
@@ -56,9 +66,18 @@ void VerticaleDroit(int x, int y, Mot e, char*** tab){
     int position = 0;
     while (position < e.taille) {
         char lettre = e.labbel[position];
+        if (*tab[x][y] == lettre || *tab[x][y] == '.'){
         PlacerLettre(x,y,*tab,lettre);
         y = y+1;
         position++;
+        }
+
+        else{
+            AnnulerVertDroit(x,y,position,*tab);
+            position = 0;
+            randomMot(e);
+
+        }
     }
 };
 
@@ -74,9 +93,18 @@ void VerticaleInverse(int x, int y, Mot e, char*** tab){
     int position = 0;
     while (position < e.taille) {
         char lettre = e.labbel[position];
+        if (*tab[x][y] == lettre || *tab[x][y] == '.'){
         PlacerLettre(x,y,*tab,lettre);
         y = y-1;
         position++;
+        }
+
+        else{
+            AnnulerVertInverse(x,y,position,*tab);
+            position = 0;
+            randomMot(e);
+
+        }
     }
 };
 
@@ -92,10 +120,19 @@ void DiagonaleHautDroite(int x, int y, Mot e, char*** tab){
     int position = 0;
     while (position < e.taille) {
         char lettre = e.labbel[position];
+        if (*tab[x][y] == lettre || *tab[x][y] == '.'){
         PlacerLettre(x,y,*tab,lettre);
         x = x+1;
-        y= y-1;
+        y = y-1;
         position++;
+        }
+
+        else{
+            AnnulerHautDroit(x,y,position,*tab);
+            position = 0;
+            randomMot(e);
+
+        }
     }
 };
 
@@ -114,10 +151,19 @@ void DiagonaleBasGauche(int x, int y, Mot e, char*** tab){
     int position = 0;
     while (position < e.taille) {
         char lettre = e.labbel[position];
+        if (*tab[x][y] == lettre || *tab[x][y] == '.'){
         PlacerLettre(x,y,*tab,lettre);
         x = x-1;
-        y= y+1;
+        y = y+1;
         position++;
+        }
+
+        else{
+            AnnulerBasGauche(x,y,position,*tab);
+            position = 0;
+            randomMot(e);
+
+        }
     }
 };
 
@@ -134,10 +180,19 @@ void DiagonaleHautGauche(int x, int y, Mot e, char*** tab){
     int position = 0;
     while (position < e.taille) {
         char lettre = e.labbel[position];
+        if (*tab[x][y] == lettre || *tab[x][y] == '.'){
         PlacerLettre(x,y,*tab,lettre);
         x = x-1;
-        y= y-1;
+        y = y-1;
         position++;
+        }
+
+        else{
+            AnnulerHautGauche(x,y,position,*tab);
+            position = 0;
+            randomMot(e);
+
+        }
     }
 };
 
@@ -154,10 +209,19 @@ void DiagonaleBasDroite(int x, int y, Mot e, char*** tab){
     int position = 0;
     while (position < e.taille) {
         char lettre = e.labbel[position];
+        if (*tab[x][y] == lettre || *tab[x][y] == '.'){
         PlacerLettre(x,y,*tab,lettre);
         x = x+1;
-        y= y+1;
+        y = y+1;
         position++;
+        }
+
+        else{
+            AnnulerBasDroit(x,y,position,*tab);
+            position = 0;
+            randomMot(e);
+
+        }
     }
 };
 
@@ -269,4 +333,3 @@ int PlacerMot(Mot e, char **tab){
     }
     return 1;
 }
-

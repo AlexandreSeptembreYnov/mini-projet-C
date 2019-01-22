@@ -55,5 +55,6 @@ int PlacerMotDiagonaleDroite(int sens, int x, int y, Mot e, char **tab);
 int PlacerMotDiagonaleGauche(int sens, int x, int y, Mot e, char **tab);
 int PlacerLettre(int x, int y, char** tab, char lettre);
 int PlacerMot(Mot e, char **tab);
+void randomMot(Mot e);
 
 #endif // MOTCACHER_H
