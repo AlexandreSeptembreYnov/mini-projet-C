@@ -35,7 +35,7 @@ char *AddCharFin(char* str,char c)
 
 void RemoveCharDebut(char* str)
 {
-    
+
 }
 
 void RemoveCharFin(char* str)
@@ -45,15 +45,12 @@ void RemoveCharFin(char* str)
 
 void VerifMot(char* str,Liste liste)
 {
-
+    Mot tmp = *liste.head;
+    while(tmp.labbel == str || tmp.labbel == 0)
+    {
+        tmp = *tmp.next;
+    }
 }
-
-
-
-
-
-
-
 
 void VerifSortieTab(Mot *e)
 {
@@ -89,9 +86,13 @@ void VerifSortieTab(Mot *e)
                 //random yDebut
                 //random xDebut
             }
+            break;
         }
-            
+        default:
+        {
+            error = 0;
+            break;
         }
     }
-    
+
 }
