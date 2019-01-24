@@ -308,27 +308,242 @@ int PlacerMotDiagonaleGauche(int sens, int x, int y, Mot e, char **tab){
     return 1;
 }
 
-int PlacerMot(Mot e, char **tab){
-    int sens = e.Sens;
-    int x = e.xDebut;
-    int y = e.yDebut;
 
-    switch(e.Direction){
+char **placeDansTab(char **tab, char *str, int taille)
+{
+    int x;
+    int y;
+    int dir;
+    int taille_mot = strlen(str);
+    int isok = 0;
+    int gauche = 0;
+    int droit = 0;
+    int haut = 0;
+    int bas = 0;
+    int p;
+    int m;
+    srand(time(NULL));
+    x = rand()%(taille);
+    y = rand()%(taille);
+    dir = rand()%(4);
+    switch (dir) {
+    case 0:
+    {
+            while (!isok) {
+                if (((x + taille_mot) <= (taille-1)) || ((x - taille_mot) >= 0))
+                {
+                    if ((x + taille_mot) <= (taille-1))
+                    {
+                        droit=1;
+                        p = x;
+                        m = x;
+                        for(int i = 0 ; str[i]; i++)
+                        {
+                            if ((tab[p][m] == str[i]) || (tab[p][m]  =='.'))
+                            {
+                                p = p +droit - gauche;
+                                m = m + bas - haut;
+                            }
+                            else {
+                                break;
+                            }
+                        }
+                        isok = 1;
+                    }
+                    else
+                    {
+
+                        gauche=1;
+                        p = x;
+                        m = x;
+                        for(int i = 0 ; str[i]; i++)
+                        {
+                            if ((tab[p][m] == str[i]) || (tab[p][m]  =='.'))
+                            {
+                                p = p +droit - gauche;
+                                m = m + bas - haut;
+                            }
+                            else {
+                                break;
+                            }
+                        }
+                        isok = 1;
+                    }
+
+                }
+                else
+                {
+                    x = rand()%(taille);
+                    y = rand()%(taille);
+                }
+            }
+            break;
+
+    }
     case 1:
-        PlacerMotHorizontal(sens,x,y,e,tab);
-        break;
-    case 2:
-        PlacerMotVerticale(sens,x,y,e,tab);
-        break;
-    case 3:
-        PlacerMotDiagonaleDroite(sens,x,y,e,tab);
-        break;
-    case 4:
-        PlacerMotDiagonaleGauche(sens,x,y,e,tab);
-        break;
-    default:
-        error();
+    {
+        while (!isok) {
+            if (((y + taille_mot) <= (taille-1)) || ((y - taille_mot) >= 0))
+            {
+               if ((y+taille_mot) <= (taille - 1))
+               {
+                   bas = 1;
+                   p = x;
+                   m = x;
+                   for(int i = 0 ; str[i]; i++)
+                   {
+                       if ((tab[p][m] == str[i]) || (tab[p][m]  =='.'))
+                       {
+                           p = p +droit - gauche;
+                           m = m + bas - haut;
+                       }
+                       else {
+                           break;
+                       }
+                   }
+                   isok = 1;
+               }
+               else
+               {
+                   haut=1;
+                   p = x;
+                   m = x;
+                   for(int i = 0 ; str[i]; i++)
+                   {
+                       if ((tab[p][m] == str[i]) || (tab[p][m]  =='.'))
+                       {
+                           p = p +droit - gauche;
+                           m = m + bas - haut;
+                       }
+                       else {
+                           break;
+                       }
+                   }
+                   isok = 1;
+               }
+
+            }
+            else
+            {
+                x = rand()%(taille);
+                y = rand()%(taille);
+            }
+        }
         break;
     }
-    return 1;
+    case 2:
+    {
+        while (!isok) {
+            if ((((x - taille_mot) >= 0) && ((y + taille_mot) <= (taille-1))) || (((y - taille_mot) >= 0) && ((x + taille_mot) <= (taille-1))))
+            {
+                if (((x + taille_mot) <= (taille-1)) && ((y - taille_mot) >= 0))
+                {
+                    haut = 1;
+                    droit = 1;
+                    p = x;
+                    m = x;
+                    for(int i = 0 ; str[i]; i++)
+                    {
+                        if ((tab[p][m] == str[i]) || (tab[p][m]  =='.'))
+                        {
+                            p = p +droit - gauche;
+                            m = m + bas - haut;
+                        }
+                        else {
+                            break;
+                        }
+                    }
+                    isok = 1;
+                }
+                else if (((x - taille_mot) >= 0) && ((y + taille_mot) <= (taille-1)))
+                {
+                    bas = 1;
+                    gauche = 1;
+                    p = x;
+                    m = x;
+                    for(int i = 0 ; str[i]; i++)
+                    {
+                        if ((tab[p][m] == str[i]) || (tab[p][m]  =='.'))
+                        {
+                            p = p +droit - gauche;
+                            m = m + bas - haut;
+                        }
+                        else {
+                            break;
+                        }
+                    }
+                    isok = 1;
+                }
+            }
+            else
+            {
+                x = rand()%(taille);
+                y = rand()%(taille);
+            }
+        }
+        break;
+    }
+    case 3:
+    {
+        while (!isok) {
+            if ((((x + taille_mot) <= (taille-1)) && ((y + taille_mot) <= (taille-1))) ||(((x - taille_mot) >= 0) && ((y - taille_mot) >= 0)))
+            {
+                if (((x + taille_mot) <= (taille-1)) && ((y + taille_mot) <= (taille-1)))
+                {
+                    droit = 1;
+                    bas = 1;
+                    p = x;
+                    m = x;
+                    for(int i = 0 ; str[i]; i++)
+                    {
+                        if ((tab[p][m] == str[i]) || (tab[p][m]  =='.'))
+                        {
+                            p = p +droit - gauche;
+                            m = m + bas - haut;
+                        }
+                        else {
+                            break;
+                        }
+                    }
+                    isok = 1;
+                }
+                else if (((x - taille_mot) >= 0) && ((y - taille_mot) >= 0))
+                {
+                    gauche = 1;
+                    haut = 1;
+                    p = x;
+                    m = x;
+                    for(int i = 0 ; str[i]; i++)
+                    {
+                        if ((tab[p][m] == str[i]) || (tab[p][m]  =='.'))
+                        {
+                            p = p +droit - gauche;
+                            m = m + bas - haut;
+                        }
+                        else {
+                            break;
+                        }
+                    }
+                    isok = 1;
+                }
+            }
+            else
+            {
+                x = rand()%(taille);
+                y = rand()%(taille);
+            }
+            break;
+        }
+    }
+    default:
+    {
+        EXIT_FAILURE;
+        break;
+    }
+    }
+    for(int i = 0 ; str[i]; i++)
+    {
+        tab[x][y] = str[i];
+    }
+    return tab;
 }
