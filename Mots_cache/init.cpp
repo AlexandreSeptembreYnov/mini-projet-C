@@ -6,9 +6,9 @@ typedef Ligne* Tableau;
 
 char **initTableau(){
 
-    char **tab = (Tableau)malloc(sizeof(Ligne) * TAILLE);
-    for (unsigned i = 0; i < TAILLE; i++){
-     tab[i] = (Ligne)malloc(sizeof(char) * TAILLE);
+    char **tab = (Tableau)malloc(sizeof(Ligne) * 8);
+    for (unsigned i = 0; i < 8; i++){
+     tab[i] = (Ligne)malloc(sizeof(char) * 8);
     }
     for(int x = 0 ; x < TAILLE ; x++){
         for(int y = 0; y < TAILLE; y++){
@@ -55,7 +55,7 @@ Mot* creationMot(char* str){
 
 Liste* creationListe(){
     Liste *l;
-    l = (Liste*)malloc(sizeof (Liste));
+    l = (Liste*)malloc(sizeof (Liste*));
     if (l == NULL)
         EXIT_FAILURE;
     l->head=NULL;

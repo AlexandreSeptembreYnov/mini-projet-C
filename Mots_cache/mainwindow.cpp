@@ -1,6 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <motcacher.h>
+#include <QFile>
+#include <QTextStream>
 
 
 MainWindow::MainWindow(QWidget *parent) :
@@ -14,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->setupUi(this);
     ui->valider->setText("Valider");
     ui->validation->hide();
+    ui->test->setText(li->head->labbel);
 }
 
 MainWindow::~MainWindow()
