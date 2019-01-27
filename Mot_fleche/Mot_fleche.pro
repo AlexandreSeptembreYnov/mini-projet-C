@@ -1,6 +1,6 @@
 #-------------------------------------------------
 #
-# Project created by QtCreator 2018-12-25T11:40:34
+# Project created by QtCreator 2019-01-23T09:34:38
 #
 #-------------------------------------------------
 
@@ -8,7 +8,7 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = Mots_cache
+TARGET = Mot_fleche
 TEMPLATE = app
 
 # The following define makes your compiler emit warnings if you use
@@ -26,14 +26,15 @@ CONFIG += c++11
 
 SOURCES += \
         main.cpp \
-    mainwindow.cpp
+        mainwindow.cpp \
+    fonctions.cpp \
+    tab.cpp
 
 HEADERS += \
-    motcacher.h \
-    mainwindow.h
+        mainwindow.h
 
 FORMS += \
-    mainwindow.ui
+        mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
